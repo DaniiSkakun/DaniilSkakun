@@ -1,0 +1,72 @@
+{% extends 'entertainment/navbar.html' %}
+{% block content %}
+<style>
+       
+        body {
+            background-color: #f4f4f9; 
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center; /* Центрування контенту */
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #f39c12;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+
+          /* Колір фону для навбару */
+        .navbar-light.bg-light {
+            background-color: #f39c12 !important;
+        }
+
+        /* Центрування карток по горизонталі */
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .navbar-nav {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn-danger {
+            width: auto;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .btn-secondary {
+            width: auto;
+        }
+
+</style>
+<div class="container my-4">
+    <h1>Підтвердження видалення</h1>
+    <p>Ви впевнені, що хочете видалити подію <strong>{{ event.name }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Видалити</button>
+        <a href="{% url 'event_list' %}" class="btn btn-secondary">Скасувати</a>
+    </form>
+</div>
+{% endblock %}

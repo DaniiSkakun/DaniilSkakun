@@ -1,0 +1,62 @@
+{% extends 'entertainment/navbar.html' %}
+
+{% block content %}
+<style>
+        .btn{
+            background-color: #000000; /* Черный фон */
+            color: #ffffff; /* Белый текст */
+            border: 2px solid #000000; /* Черная обводка */
+            border-radius: 5px; /* Немного скругленные углы */
+            padding: 10px 20px; /* Внутренние отступы для удобства */
+            text-transform: uppercase; /* Текст в верхнем регистре */
+            font-weight: bold; /* Жирный текст */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        body {
+            background-color: #f4f4f9;
+            color: black;
+        }
+
+        .container {
+            text-align: center; /* Центрування контенту*/
+            margin-top: 50px;
+            width: 600px;
+            color: #000000;
+        }
+
+        .card {
+            background-color: #a8d8d8; /* м'ятний колір для карток */
+        }
+
+        .navbar-light.bg-light {
+            background-color: #a8d8d8 !important;
+        }
+         .navbar-nav {
+            justify-content: center;
+            width: 100%;
+        }
+
+</style>
+
+<div class="container my-4">
+    <h1 class="mb-4">{{ center.name }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Опис</h5>
+            <p class="card-text">{{ center.description }}</p>
+
+            <h5 class="card-title">Адреса</h5>
+            <p class="card-text">{{ center.address }}</p>
+
+            <h5 class="card-title">Тип центру</h5>
+            <p class="card-text">{{ center.center_type.name }}</p>
+
+            <!-- Кнопка для редагування центру -->
+            <a href="{% url 'center_edit' pk=center.pk %}" class="btn btn-warning mt-3">Редагувати</a>
+            <!-- Кнопка для повернення до списку центрів -->
+            <a href="{% url 'center_list' %}" class="btn btn-primary mt-3">Повернутись до списку</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список спортивних об’єктів</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+        body {
+            background-color: #f4f4f9 !important;
+            color: black;
+
+        }
+
+        .container {
+            text-align: center; /* Центрування контенту*/
+            margin-top: 50px;
+            width: 600px;
+            color: #000000;
+        }
+
+        .card {
+            background-color: #f39c12 !important; /* м'ятний колір для карток */
+        }
+
+        .navbar-light.bg-light {
+            background-color: #f39c12!important;
+        }
+         .navbar-nav {
+            justify-content: center;
+            width: 100%;
+        }
+
+</style>
+<body>
+{% extends 'entertainment/navbar.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <h1>Спортивні об’єкти</h1>
+    <h3 class="mt-4">Список спортивних об’єктів</h3>
+    <div class="row">
+        {% for center in centers %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ center.name }}</h5>
+                    <p class="card-text">{{ center.center_type.name }}</p>
+                    <a href="{% url 'center_detail' pk=center.pk %}" class="btn btn-primary">Докладніше</a>
+                    <a href="{% url 'center_edit' pk=center.pk %}" class="btn btn-warning">Редагувати</a>
+                    <form method="post" action="{% url 'center_delete' pk=center.pk %}" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Видалити</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'center_add' %}" class="btn btn-success mt-4">Додати новий спортивний об’єкт</a>
+</div>
+{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

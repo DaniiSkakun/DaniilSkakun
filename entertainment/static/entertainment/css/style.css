@@ -1,0 +1,54 @@
+/* Загальний стиль для сторінки */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Сучасний шрифт */
+    background-color: #f4f6f9; /* Світло-сірий фон */
+    margin: 0;
+    padding: 0;
+}
+
+/* Заголовок сторінки */
+h1 {
+    text-align: center; /* Центрування тексту */
+    color: #4b0082; /* Індиго колір для заголовку */
+    font-size: 3rem; /* Великий шрифт */
+    text-transform: uppercase; /* Великі літери */
+    margin-top: 30px; /* Відступ зверху */
+    letter-spacing: 3px; /* Розширення літер */
+}
+
+/* Контейнер для основного контенту */
+.container {
+    width: 80%; /* Ширина контейнера */
+    margin: 0 auto; /* Центрування контейнера */
+    padding: 20px;
+    background-color: white; /* Білий фон контейнера */
+    border-radius: 10px; /* Закруглені кути */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Тінь для контейнера */
+}
+
+/* Стиль для параграфів */
+p {
+    font-size: 1.2rem; /* Трохи більший шрифт для тексту */
+    line-height: 1.8; /* Міжрядковий інтервал */
+    color: #555; /* Трохи світліший сірий для тексту */
+    text-align: justify; /* Вирівнювання тексту по ширині */
+    margin-bottom: 20px; /* Відступ від інших елементів */
+}
+
+/* Кнопка */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    background-color: #f4f4f9; /* Синій фон кнопки */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Закруглені кути */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Анімація при зміні кольору */
+}
+
+button:hover {
+    background-color: #f4f4f9; /* Темніший синій при наведенні */
+}
